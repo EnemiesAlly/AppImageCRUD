@@ -50,8 +50,11 @@ export class AddproductPage implements OnInit {
         this.selectFile = null;
       },
       error: (err) => {
-        console.error("บันทึกข้อมูลไม่สำเร็จ", err);
+        console.error("เกิดข้อผิดพลาดในการบันทึกข้อมูล", err);
+        if(err.error instanceof ProgressEvent) {
+          console.error('เกิดข้อผิดพลาดในการเชื่อต่อกับเซิร์ฟเวอร์')
       }
+    }
     });
   }
 }
