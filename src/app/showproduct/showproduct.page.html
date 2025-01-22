@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-button slot="end" color="warning" (click)="gotoaddproduct()">เพิ่มสินค้า</ion-button>
+    <ion-title color="dark">แสดงสินค้า</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>สินค้า</ion-card-title>
+      <ion-card-subtitle>สินค้าทั้งหมดของร้าน</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngFor="let pro of products">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img [src]="'http://127.0.0.1/class2-4/crudapi/' + pro.image" />
+          </ion-thumbnail>
+          <ion-label>สินค้าชิ้นที่ 1</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
