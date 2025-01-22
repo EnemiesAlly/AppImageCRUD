@@ -4,7 +4,6 @@
     <ion-title color="dark">แสดงสินค้า</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-card>
     <ion-card-header>
@@ -12,12 +11,17 @@
       <ion-card-subtitle>สินค้าทั้งหมดของร้าน</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-list *ngFor="let pro of products">
-        <ion-item>
+      <ion-list>
+        <ion-item *ngFor="let pro of products">
           <ion-thumbnail slot="start">
-            <img [src]="'http://127.0.0.1/class2-4/crudapi/' + pro.image" />
+            <img [src]="getImageUrl(pro.image)" alt="Product image"/>
           </ion-thumbnail>
-          <ion-label>สินค้าชิ้นที่ 1</ion-label>
+          <ion-label>
+            <h2>{{pro.name}}</h2>
+            <p>ราคา: {{pro.price}} บาท</p>
+          </ion-label>
+          <ion-button slot="end" (click)="editProduct(pro)" color="primary">แก้ไข</ion-button>
+          <ion-button slot="end" (click)="deletepro(pro.id)" color="danger">ลบ</ion-button>
         </ion-item>
       </ion-list>
     </ion-card-content>
